@@ -183,7 +183,8 @@ The inventory snapshot uses a **7-day weighted moving average** (more weight on 
 ## 🖼️ Screenshots
 
 > *Dashboard showing inventory risk radar with critical, soon, and healthy stock levels*
-<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/6cfcda3a-896a-496d-aafe-30c417ed4f74" />
+<img width="1600" height="810" alt="WhatsApp Image 2026-11-10 at 7 32 16 PM" src="https://github.com/user-attachments/assets/a48f6f8e-8721-47e8-99ef-d7bdbdfdb091" />
+
 
 > *Restock plan view with supplier recommendations and basket approval*
 <img width="1600" height="808" alt="WhatsApp Image 2026-11-10 at 7 32 56 PM" src="https://github.com/user-attachments/assets/e48ebe0d-23c6-40fb-8620-3d5bc71c6e08" />
