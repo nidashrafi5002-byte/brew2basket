@@ -2,6 +2,8 @@
 
 > Tell Brew2Basket what's running low. It'll find a sensible restock and keep you in control of checkout.
 
+🚀 **Live Demo:** [brew2basket-production.up.railway.app](https://brew2basket-production.up.railway.app)
+
 Brew2Basket is a full-stack web application that helps independent café owners manage inventory and place restocking orders using plain-language requests. It tracks stock levels, forecasts demand using weighted sales averages, recommends suppliers, and processes payments via PayPal.
 
 ---

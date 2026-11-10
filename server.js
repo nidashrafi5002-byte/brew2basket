@@ -3,7 +3,9 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const ROOT = __dirname;
-const PUBLIC = path.join(ROOT, 'public');
+// Serve the React build in production; fall back to /public for the vanilla version
+const DIST = path.join(ROOT, 'client', 'dist');
+const PUBLIC = fs.existsSync(DIST) ? DIST : path.join(ROOT, 'public');
 loadEnv(path.join(ROOT, '.env'));
 const PORT = Number(process.env.PORT || 3000);
 const CATALOG = [
@@ -175,7 +177,7 @@ async function paypalRequest(endpoint, payload) {
   return data;
 }
 
-const MIME = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml' };
+const MIME = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.ico': 'image/x-icon', '.woff': 'font/woff', '.woff2': 'font/woff2', '.json': 'application/json' };
 
 const server = http.createServer(async (req, res) => {
   try {
@@ -217,7 +219,16 @@ const server = http.createServer(async (req, res) => {
     const relative = decodeURIComponent(url.pathname === '/' ? '/index.html' : url.pathname);
     const file = path.resolve(PUBLIC, `.${relative}`);
     if (!file.startsWith(PUBLIC + path.sep) && file !== path.join(PUBLIC, 'index.html')) return send(res, 403, { error: 'Forbidden.' });
-    if (!fs.existsSync(file) || !fs.statSync(file).isFile()) return send(res, 404, { error: 'Not found.' });
+    // SPA fallback: if file not found, serve index.html so React Router handles the route
+    if (!fs.existsSync(file) || !fs.statSync(file).isFile()) {
+      const indexFile = path.join(PUBLIC, 'index.html');
+      if (fs.existsSync(indexFile)) {
+        res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'x-content-type-options': 'nosniff' });
+        if (req.method === 'HEAD') return res.end();
+        return fs.createReadStream(indexFile).pipe(res);
+      }
+      return send(res, 404, { error: 'Not found.' });
+    }
     res.writeHead(200, { 'content-type': MIME[path.extname(file)] || 'application/octet-stream', 'x-content-type-options': 'nosniff' });
     if (req.method === 'HEAD') return res.end();
     fs.createReadStream(file).pipe(res);
