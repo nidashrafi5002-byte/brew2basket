@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F3E6CF">
+  <title>Brew2Basket — Café restock copilot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/Brew2Basket-theme.css">
+  <script src="/app.js" defer></script>
+  <script src="/Brew2Basket-effects.js" defer></script>
+</head>
+<body>
+  <div class="scene-wrap" aria-hidden="true">
+    <svg class="stockroom-scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#F5E8D3"/><stop offset="1" stop-color="#D9BB91"/></linearGradient>
+        <linearGradient id="wood" x2="0" y2="1"><stop stop-color="#A9784C"/><stop offset=".45" stop-color="#865936"/><stop offset="1" stop-color="#68442D"/></linearGradient>
+        <linearGradient id="sack" x2="1" y2="1"><stop stop-color="#D9BB8C"/><stop offset="1" stop-color="#B58B5E"/></linearGradient>
+        <linearGradient id="jar" x2="0" y2="1"><stop stop-color="#FFF8EA" stop-opacity=".82"/><stop offset="1" stop-color="#C99F69" stop-opacity=".72"/></linearGradient>
+        <linearGradient id="milk" x2="1" y2="1"><stop stop-color="#FFFCF4"/><stop offset="1" stop-color="#D8C5A7"/></linearGradient>
+      </defs>
+      <rect width="1600" height="900" fill="url(#wall)"/>
+      <path d="M0 130H1600M0 420H1600M0 710H1600" stroke="#C6A77D" stroke-opacity=".38" stroke-width="3"/>
+      <rect x="0" y="275" width="1600" height="29" rx="7" fill="url(#wood)"/><rect x="0" y="565" width="1600" height="29" rx="7" fill="url(#wood)"/><rect x="0" y="855" width="1600" height="32" rx="7" fill="url(#wood)"/>
+      <path d="M88 300V865M1510 300V865" stroke="#68442D" stroke-width="24" opacity=".9"/>
+      <!-- upper shelf: bean sacks, jars and oat milk -->
+      <g transform="translate(145 170)"><path d="M0 32 25 0h102l28 32-9 71H12z" fill="url(#sack)" stroke="#805A3C" stroke-width="5"/><path d="M37 4 48 32h55L117 4" fill="none" stroke="#9A704A" stroke-width="4"/><path d="M51 54h51" stroke="#805A3C" stroke-width="6"/></g>
+      <g transform="translate(345 191)"><rect x="0" y="10" width="95" height="72" rx="16" fill="url(#jar)" stroke="#8D6A48" stroke-width="4"/><rect x="12" y="0" width="71" height="17" rx="5" fill="#805B3D"/><circle cx="28" cy="49" r="8" fill="#75462C"/><circle cx="49" cy="41" r="8" fill="#8D5935"/><circle cx="69" cy="56" r="8" fill="#68432D"/></g>
+      <g transform="translate(490 184)"><rect x="0" y="10" width="95" height="72" rx="16" fill="url(#jar)" stroke="#8D6A48" stroke-width="4"/><rect x="12" y="0" width="71" height="17" rx="5" fill="#805B3D"/><circle cx="29" cy="53" r="8" fill="#75462C"/><circle cx="49" cy="42" r="8" fill="#8D5935"/><circle cx="69" cy="57" r="8" fill="#68432D"/></g>
+      <g transform="translate(700 174)"><path d="M10 20 34 0h54l20 20v88H10z" fill="url(#milk)" stroke="#A88C69" stroke-width="4"/><path d="M34 0v20h74" fill="none" stroke="#A88C69" stroke-width="4"/><path d="M29 57h52" stroke="#C28D52" stroke-width="8"/><text x="28" y="81" fill="#73543B" font-family="sans-serif" font-size="14">OAT</text></g>
+      <g transform="translate(840 174)"><path d="M10 20 34 0h54l20 20v88H10z" fill="url(#milk)" stroke="#A88C69" stroke-width="4"/><path d="M34 0v20h74" fill="none" stroke="#A88C69" stroke-width="4"/><path d="M29 57h52" stroke="#8B9A72" stroke-width="8"/><text x="28" y="81" fill="#73543B" font-family="sans-serif" font-size="14">OAT</text></g>
+      <g transform="translate(1070 194)"><ellipse cx="56" cy="70" rx="54" ry="14" fill="#D6C4A8"/><path d="M10 18h92v58q-46 22-92 0z" fill="#E4D6C0" stroke="#967755" stroke-width="4"/><path d="M15 38h82" stroke="#B28B5D" stroke-width="8"/><text x="30" y="67" fill="#65472E" font-family="serif" font-size="17">TEA</text></g>
+      <g transform="translate(1265 175)"><path d="M18 18h67l8 14v71H10V32z" fill="url(#sack)" stroke="#8B6543" stroke-width="4"/><path d="M27 18 37 3h28l10 15" fill="none" stroke="#8B6543" stroke-width="4"/><path d="M27 59h53" stroke="#9F764D" stroke-width="7"/><text x="30" y="84" fill="#65472E" font-family="serif" font-size="15">SUGAR</text></g>
+      <!-- middle shelf: cups, syrups, tea and coffee -->
+      <g transform="translate(135 453)"><path d="M10 0h94l-10 99H20z" fill="#F9F3E8" stroke="#B79B76" stroke-width="4"/><path d="M24 29h65M22 46h61M21 63h57" stroke="#D4C0A0" stroke-width="3"/><path d="M5 0h104" stroke="#B79B76" stroke-width="6"/></g>
+      <g transform="translate(300 460)"><path d="M0 19h72l-7 82H8z" fill="#F5EAD8" stroke="#9B7651" stroke-width="4"/><path d="M16 18V5h39v13" fill="#8E6542"/><path d="M14 47h44" stroke="#C98A2E" stroke-width="8"/><text x="18" y="77" fill="#68442D" font-family="serif" font-size="16">VANILLA</text></g>
+      <g transform="translate(415 462)"><path d="M0 19h72l-7 82H8z" fill="#E8D4B7" stroke="#9B7651" stroke-width="4"/><path d="M16 18V5h39v13" fill="#8E6542"/><path d="M14 47h44" stroke="#9E6C48" stroke-width="8"/><text x="18" y="77" fill="#68442D" font-family="serif" font-size="16">CARAMEL</text></g>
+      <g transform="translate(595 453)"><rect x="5" y="18" width="83" height="81" rx="18" fill="url(#jar)" stroke="#8D6A48" stroke-width="4"/><rect x="15" y="5" width="63" height="18" rx="5" fill="#805B3D"/><circle cx="28" cy="60" r="8" fill="#75462C"/><circle cx="48" cy="48" r="8" fill="#8D5935"/><circle cx="68" cy="66" r="8" fill="#68432D"/></g>
+      <g transform="translate(785 450)"><path d="M10 26h114v72H10z" fill="#EDE1CC" stroke="#A88C69" stroke-width="4"/><path d="M10 47h114" stroke="#BE9B6C" stroke-width="4"/><text x="35" y="79" fill="#68442D" font-family="serif" font-size="22">CUPS</text></g>
+      <g transform="translate(1035 449)"><rect x="7" y="21" width="68" height="77" rx="12" fill="#D1B78F" stroke="#8A6848" stroke-width="4"/><rect x="13" y="11" width="56" height="14" rx="5" fill="#705136"/><text x="24" y="66" fill="#F7EDDE" font-family="serif" font-size="18">TEA</text></g>
+      <g transform="translate(1190 449)"><path d="M0 28h75v63q-36 20-75 0z" fill="url(#milk)" stroke="#A88C69" stroke-width="4"/><path d="M20 28V12h38v16" fill="#8B7154"/><path d="M12 58h50" stroke="#C98A2E" stroke-width="8"/><text x="12" y="82" fill="#68442D" font-family="sans-serif" font-size="13">OAT MILK</text></g>
+      <g transform="translate(1360 455)"><path d="M5 32h90v60H5z" fill="#E8D9C1" stroke="#967755" stroke-width="4"/><path d="M15 18h70v18H15z" fill="#805B3D"/><text x="21" y="70" fill="#68442D" font-family="serif" font-size="16">BEANS</text></g>
+      <!-- lower shelf: bulk bags and cartons -->
+      <g transform="translate(165 746)"><path d="M0 23 18 0h104l22 23-7 92H9z" fill="url(#sack)" stroke="#805A3C" stroke-width="5"/><path d="M35 3 45 28h62L117 3" fill="none" stroke="#9A704A" stroke-width="4"/><text x="40" y="75" fill="#68442D" font-family="serif" font-size="20">COFFEE</text></g>
+      <g transform="translate(380 760)"><path d="M10 18h95v78H10z" fill="#F0E2CA" stroke="#9B7651" stroke-width="4"/><path d="M10 39h95" stroke="#B68A59" stroke-width="4"/><text x="31" y="73" fill="#68442D" font-family="serif" font-size="20">SUGAR</text></g>
+      <g transform="translate(580 749)"><rect x="0" y="17" width="104" height="87" rx="18" fill="url(#jar)" stroke="#8D6A48" stroke-width="4"/><rect x="13" y="2" width="78" height="20" rx="5" fill="#805B3D"/><circle cx="27" cy="65" r="9" fill="#75462C"/><circle cx="50" cy="51" r="9" fill="#8D5935"/><circle cx="74" cy="71" r="9" fill="#68432D"/></g>
+      <g transform="translate(800 749)"><path d="M0 21h82v94H0z" fill="#F6F0E5" stroke="#A88C69" stroke-width="4"/><path d="M19 21V7h44v14" fill="#886345"/><path d="M12 58h57" stroke="#C98A2E" stroke-width="8"/><text x="17" y="88" fill="#68442D" font-family="sans-serif" font-size="15">OAT</text></g>
+      <g transform="translate(1000 755)"><path d="M10 17h72v95H10z" fill="#D9C5A4" stroke="#967755" stroke-width="4"/><path d="M10 39h72" stroke="#8E6542" stroke-width="4"/><text x="21" y="81" fill="#68442D" font-family="serif" font-size="17">TEA</text></g>
+      <g transform="translate(1180 750)"><path d="M14 19h75l12 93H2z" fill="#E7D6BB" stroke="#967755" stroke-width="4"/><path d="M27 19 36 4h33l10 15" fill="none" stroke="#967755" stroke-width="4"/><text x="25" y="73" fill="#68442D" font-family="serif" font-size="18">FLOUR</text></g>
+      <g transform="translate(1370 754)"><path d="M10 17h78v95H10z" fill="#E9D8BB" stroke="#967755" stroke-width="4"/><path d="M10 40h78" stroke="#A77A50" stroke-width="4"/><text x="20" y="80" fill="#68442D" font-family="serif" font-size="16">SUPPLIES</text></g>
+      <rect y="885" width="1600" height="15" fill="#765037" opacity=".6"/>
+    </svg>
+  </div>
+  <div class="scene-veil" aria-hidden="true"></div>
+  <div id="bean-layer" class="bean-layer" aria-hidden="true"></div>
+
+  <header class="topbar glass-surface">
+    <a class="brand" href="/"><span class="brand-mark">S</span><span>Brew2Basket<span class="period">.</span></span></a>
+    <div class="top-meta"><span class="status-dot"></span><span id="cafe-label">Demo café</span><span class="divider">·</span><span id="payment-mode">Sandbox demo</span></div>
+  </header>
+
+  <main class="page">
+    <section class="intro">
+      <p class="eyebrow">YOUR PURCHASING COPILOT</p>
+      <h1>Keep the good stuff<br><em>coming.</em></h1>
+      <p class="subhead">Tell Brew2Basket what’s running low. It’ll find a sensible restock and keep you in control of checkout.</p>
+      <div class="hero-summary glass-surface" aria-label="Inventory summary">
+        <div class="stat-chip critical-chip"><strong id="stat-critical">0</strong><span>critical</span></div>
+        <div class="stat-chip soon-chip"><strong id="stat-soon">0</strong><span>reorder soon</span></div>
+        <div class="stat-chip healthy-chip"><strong id="stat-healthy">0</strong><span>healthy</span></div>
+        <div class="stat-chip estimate-chip"><strong id="stat-estimate">$0</strong><span>est. to restock</span></div>
+        <button id="draft-risk-request" class="primary-button hero-fix-button" type="button">Fix at-risk items <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <section class="inventory-card glass-surface" aria-labelledby="inventory-title">
+      <div class="inventory-header"><div><p class="eyebrow">STOCK SIGNAL</p><h2 id="inventory-title">Inventory risk radar</h2><p class="inventory-subtitle">Days of stock left from recent sales and supplier lead times.</p></div></div>
+      <p class="inventory-method">Demo inventory · 7-day weighted sales average · Edit on-hand quantities to explore scenarios.</p>
+      <div id="inventory-radar" class="inventory-grid" aria-live="polite"><p class="inventory-loading">Loading inventory snapshot…</p></div>
+    </section>
+
+    <section class="workspace">
+      <form class="request-card glass-surface" id="request-form">
+        <div class="card-heading"><span class="step">01</span><div><h2>What do you need?</h2><p>Describe your restock in plain language.</p></div></div>
+        <label for="request">Your request</label>
+        <textarea id="request" rows="4" required>We need espresso beans and oat milk for the weekend. Keep it under $180 and prioritize fast delivery.</textarea>
+        <label for="budget">Spending limit <span class="unit">USD</span></label>
+        <div class="budget-input"><span>$</span><input id="budget" type="number" min="35" max="1500" value="180" required></div>
+        <button class="primary-button" id="plan-button" type="submit">Build my restock plan <span aria-hidden="true">→</span></button>
+        <p class="fine-print">Nothing is purchased until you approve it.</p>
+        <div class="ai-note"><span class="sparkle">✳</span><div><strong id="planner-label">Brew2Basket planner</strong><p id="planner-description">Balances price, delivery speed, and supplier rating.</p></div></div>
+      </form>
+
+      <section class="results-card glass-surface" aria-live="polite">
+        <div class="card-heading results-heading"><span class="step">02</span><div><h2>Your restock plan</h2><p id="result-status">Ready when you are.</p></div></div>
+        <div id="plan-loading" class="plan-loading hidden" aria-live="polite">
+          <div class="plan-steps"><span class="plan-step active">Reading your request</span><span class="plan-step">Comparing suppliers</span><span class="plan-step">Checking budget</span></div>
+          <div class="skeleton-line"></div><div class="skeleton-line short"></div>
+        </div>
+        <div id="recommendation" class="recommendation empty-state"><div class="empty-icon">✳</div><strong>Your next good decision starts here.</strong><p>Build a plan to compare supplier options and see Brew2Basket’s recommendation.</p></div>
+        <div id="basket" class="basket"></div>
+        <div id="order-summary" class="order-summary hidden">
+          <div class="summary-line"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+          <div class="summary-line"><span>Budget remaining</span><strong id="remaining">$0.00</strong></div>
+          <div class="budget-meter" role="progressbar" aria-label="Budget used" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="budget-meter-fill"></span></div>
+          <div class="summary-total"><span>Estimated total</span><strong id="total">$0.00</strong></div>
+          <div class="plan-actions"><button id="edit-plan-button" class="secondary-button" type="button">Edit basket</button><button id="reject-plan-button" class="secondary-button reject-button" type="button">Reject</button><button id="approve-button" class="primary-button" type="button">Approve basket <span aria-hidden="true">→</span></button></div>
+          <p class="fine-print approval-note">Nothing is purchased until you approve it.</p>
+        </div>
+        <div id="checkout" class="checkout hidden"><div class="checkout-heading"><span class="step">03</span><div><h2>Complete checkout</h2><p id="checkout-message">Your approval is required before checkout.</p></div></div><div id="paypal-button-container"></div><button id="demo-checkout-button" class="secondary-button hidden" type="button">Simulate demo checkout</button></div>
+        <div id="confirmation" class="confirmation hidden"></div>
+      </section>
+    </section>
+
+    <details class="setup-accordion">
+      <summary><span class="accordion-icon">＋</span><span><strong>Manage café and ingredients</strong><small>Profiles, stock levels, and supplier details</small></span><span class="accordion-chevron">⌄</span></summary>
+      <section class="cafe-setup glass-surface" aria-labelledby="cafe-setup-title">
+        <div class="cafe-setup-heading"><div><p class="eyebrow">WORKSPACE</p><h2 id="cafe-setup-title">Your café setup</h2><p>Keep each café’s ingredient list and stock separate.</p></div><div class="cafe-switcher"><label for="cafe-picker">Active café</label><select id="cafe-picker" aria-label="Choose café"></select><button id="new-cafe-button" class="secondary-button" type="button">＋ New café</button></div></div>
+        <form id="cafe-name-form" class="cafe-name-form"><label for="cafe-name">Café name</label><input id="cafe-name" maxlength="60" required><button class="secondary-button" type="submit">Save name</button></form>
+        <div class="ingredient-manager"><div class="ingredient-manager-heading"><div><h3>Ingredients and stock</h3><p>Add your café’s items and supplier details.</p></div><span class="local-save-note">Saved in this browser</span></div>
+          <form id="ingredient-form" class="ingredient-form"><input id="ingredient-name" maxlength="60" placeholder="Ingredient name" aria-label="Ingredient name" required><input id="ingredient-unit" maxlength="35" placeholder="Unit (e.g. 1 kg bag)" aria-label="Purchase unit" required><input id="ingredient-stock" type="number" min="0" max="99999" step="1" placeholder="Stock on hand" aria-label="Stock on hand" required><input id="ingredient-demand" type="number" min="0" max="9999" step="0.1" placeholder="Used per day" aria-label="Average use per day" required><input id="ingredient-supplier" maxlength="60" placeholder="Supplier" aria-label="Supplier name" required><input id="ingredient-price" type="number" min="0.01" max="100000" step="0.01" placeholder="Price per unit ($)" aria-label="Price per unit" required><input id="ingredient-lead" type="number" min="1" max="60" step="1" placeholder="Delivery days" aria-label="Supplier delivery days" required><div class="ingredient-form-actions"><button id="save-ingredient-button" class="primary-button" type="submit">Add ingredient</button><button id="cancel-edit-button" class="secondary-button hidden" type="button">Cancel edit</button></div></form>
+          <div id="ingredient-list" class="ingredient-list" aria-live="polite"></div>
+        </div>
+        <p class="setup-footnote">This prototype saves café profiles on this device. It does not yet provide account sign-in or cross-device syncing.</p>
+      </section>
+    </details>
+
+    <details class="tools-accordion">
+      <summary><span><strong>Planning tools</strong><small>Expiry watch, budget scenarios, supplier comparison</small></span><span class="accordion-chevron">⌄</span></summary>
+      <section class="planning-tools glass-surface" aria-labelledby="tools-title">
+        <div class="tools-heading"><div><p class="eyebrow">EXTRA CONTROLS</p><h2 id="tools-title">Planning tools</h2><p>Open a tool when you need it.</p></div><span class="tools-count">3 tools</span></div>
+        <div class="tools-list">
+          <details class="tool-panel"><summary><span class="tool-icon expiry-icon">◷</span><span class="tool-title"><strong>Expiry watch</strong><small>Spot sample lots to use soon</small></span><span class="tool-chevron">⌄</span></summary><div class="tool-content"><p id="expiry-demo-note" class="demo-note">Illustrative demo dates only; connect real lot data for operational use.</p><div id="expiry-list" class="expiry-list"></div></div></details>
+          <details class="tool-panel"><summary><span class="tool-icon budget-icon">$</span><span class="tool-title"><strong>Budget scenarios</strong><small>Choose a planning cap before building a basket</small></span><span class="tool-chevron">⌄</span></summary><div class="tool-content"><div id="budget-scenarios" class="scenario-list"></div><p id="scenario-message" class="tool-helper">Selecting a scenario updates the spending limit. Your current basket is not purchased.</p></div></details>
+          <details class="tool-panel"><summary><span class="tool-icon supplier-icon">↔</span><span class="tool-title"><strong>Supplier comparison</strong><small>Compare listed prices, delivery, and ratings</small></span><span class="tool-chevron">⌄</span></summary><div class="tool-content"><p class="demo-note">Sample catalog offers. Confirm availability and final terms with the supplier.</p><div id="supplier-comparison" class="supplier-table-wrap"></div></div></details>
+        </div>
+      </section>
+    </details>
+
+    <footer><span>Brew2Basket · AI-assisted café purchasing</span><span>Sample catalog · PayPal sandbox demo</span></footer>
+  </main>
+  <script src="/node_modules/lenis/dist/lenis.min.js"></script>
+<script src="/smooth-scroll.js"></script>
+</body>
+</html>
