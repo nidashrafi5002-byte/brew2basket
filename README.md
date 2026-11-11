@@ -34,6 +34,10 @@ Brew2Basket is a full-stack web application that helps independent café owners 
 
 ---
 
+## Project Architecture
+<img width="1024" height="637" alt="image" src="https://github.com/user-attachments/assets/d93c3a66-9ed1-43d2-927e-89321bb5c4b4" />
+
+
 ## 📁 Project Structure
 
 ```
